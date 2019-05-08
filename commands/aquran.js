@@ -6,8 +6,8 @@ var checkvalidverse = require(`../util/checkvalidverse.js`);
 exports.run = async (Client, message, args) => {
   
   try {
-  
-    var errmsg = `Invalid.\n**Usage:** \n${Prefix}aquran <surah number>:<ayah number>\n${Prefix}aquran <surah number>:<startverse>-<endverse>  (max 10 verses at once)\n**Example:** ${Prefix}aquran 3:3\n${Prefix}aquran 3:3-5  `;
+    
+    var errmsg = `Invalid.\n**Usage:** \n${Prefix}aquran <surah number>:<ayah number>\n${Prefix}aquran <surah number>:<startverse>-<endverse>  (max 5 verses at once)\n**Example:** ${Prefix}aquran 3:3\n${Prefix}aquran 3:3-5  `;
     
     if (checkvalidverse.check(message, args) == "false") {
       return message.channel.send(errmsg)
@@ -18,16 +18,24 @@ exports.run = async (Client, message, args) => {
        if (ayah.includes(`-`)) {
        var x = ayah.slice(0, ayah.indexOf('-'))
        var y = ayah.slice(ayah.indexOf('-') + 1)
-       if (y < x) [x, y] = [y, x]
-       if ((x - y) > 10) return message.channel.send(errmsg)
+       if (y < x)  {
+       [x, y] = [y, x] 
+       if ((x - y) > 5) return message.channel.send(errmsg)
+       if (x == 0) return message.channel.send(errmsg)
+    
        var url = `http://quranapi.azurewebsites.net/api/verse/?chapter=${surah}&start=${x}&end=${y}`;
+       } else {
+         if ((y - x) > 5) return message.channel.send(errmsg)
+         if (y == 0) return message.channel.send(errmsg)
+         var url = `http://quranapi.azurewebsites.net/api/verse/?chapter=${surah}&start=${x}&end=${y}`;
+       }
          
     } else {
       
        var url = `http://quranapi.azurewebsites.net/api/verse/?chapter=${surah}&number=${ayah}`
        
     }
-   
+   console.log(url)
      request({
        
      url: url,
