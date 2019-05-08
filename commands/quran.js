@@ -19,7 +19,7 @@ exports.run = async (Client, message, args) => {
        var x = ayah.slice(0, ayah.indexOf('-'))
        var y = ayah.slice(ayah.indexOf('-') + 1)
        if (y < x) [x, y] = [y, x]
-       if (y - x > 10) return message.channel.send(errmsg)
+        if ((x - y) > 10) return message.channel.send(errmsg)
        var url = `http://quranapi.azurewebsites.net/api/verse/?chapter=${surah}&start=${x}&end=${y}&lang=en`;
          
     } else {
