@@ -10,7 +10,8 @@ __Commands__
 6. Islamic date
 7. Prayer timings
 8. tafsir(coming soon)
-type .help for a list of commands and usage
+
+- type .help for a list of commands and usage
 
 __self-hosting__
 1. Download .zip
