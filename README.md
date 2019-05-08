@@ -13,7 +13,7 @@ Bismillahirahmaniraheem
 
 #self-hosting
 1. Download .zip
-2. Replace prefix + bot token in __dirname/config/config.json with ur bots token
+2. Replace prefix + bot token in config/config.json with ur bots token
 3. Replace in config/support.json with ur bots repo and support server 
 4. npm install
 5. Node bot.js
