@@ -30,7 +30,7 @@ const URL = 'http://api.aladhan.com/v1/timingsByCity?city=' + city+ '&country=' 
             .then(response => {
                        
               console.debug(response.data);
-                       if (response.data == undefined || response.data == null) return message.channel.send(errmsg);
+                       if (response.data == undefined || response.data == null) return message.channel.send(`error, pls try again`);
                        
                        var embed = new Discord.RichEmbed().setColor("GOLD")
                        embed.setTitle(`:date: ISLAMIC DATE\nREQUESTED: ${args.join(' ').toUpperCase()}\nDEDICATED TIME ZONE: ${response.data.meta.timezone.toUpperCase()} :kaaba:\n------------------------------------------------------------`)
