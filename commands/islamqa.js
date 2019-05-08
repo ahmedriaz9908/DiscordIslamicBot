@@ -35,7 +35,8 @@ var cheerio = require('cheerio');
     if (details !== undefined || details !== null || link !== null || link !== undefined || link !== "" || details !== "") {
       
     var details = details.slice(-1)[0].replace(/-/g, ' ').replace(/\+/g, ' ');
-      
+    if (details.includes(`%25`)) details = details.slice(0, details.indexOf(`%25`))
+    if (details.includes(`&tbo=1`)) details = details.slice(0, details.indexOf(`&tbo=1`))
     try {
       
     embed.addField(details, `[Click here](${link})`);
