@@ -42,14 +42,14 @@ exports.run = async (Client, message, args) => {
     var loop = hadith.match(/.{1,1999}/g);
     for (let i = 0; i < loop.length; i++) {
     var embed = new Discord.RichEmbed().setColor("GOLD").setTimestamp().setFooter(`Hadith ${args[0]} ${book}:${chapter} requested by `+ message.author.tag)
-    embed.setDescription(loop[i])
+    embed.setDescription(`**${loop[i]}**`)
     await message.channel.send(embed)
     }
       
     } else {
       
       var embed = new Discord.RichEmbed().setColor("GOLD").setTimestamp().setFooter(`Hadith ${args[0]} ${book}:${chapter} requested by ` + message.author.tag)
-    embed.setDescription(hadith)
+    embed.setDescription(`**${hadith}**`)
     await message.channel.send(embed)
       
     }
