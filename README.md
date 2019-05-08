@@ -10,6 +10,7 @@ Bismillahirahmaniraheem
 6. Islamic date
 7. Prayer timings
 8. tafsir(coming soon)
+type .help for a list of commands and usage
 
 #self-hosting
 1. Download .zip
