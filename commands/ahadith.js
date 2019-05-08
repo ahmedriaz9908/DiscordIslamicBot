@@ -5,17 +5,12 @@ var cheerio = require('cheerio')
 var checkvalidhadith = require("../util/checkvalidhadith.js")
 
 exports.run = async (Client, message, args) => {
-  
   try {
-    
-  var errmsg = `Invalid.\n**Usage:** ${Prefix}hadith <collection> <book-number>:<hadith-number>\n**Example:** ${Prefix}hadith bukhari 1:1\n**Collections:** bukhari, muslim, nasai, abudawud, tirmidhi, ibnmajah, malik, riyadussaliheen, adab, shamail, bulugh`;
+  var errmsg = `Invalid.\n**Usage:** ${Prefix}ahadith <collection> <book-number>:<hadith-number>\n**Example:** ${Prefix}ahadith bukhari 1:1\n**Collections:** bukhari, muslim, nasai, abudawud, tirmidhi, ibnmajah, malik, riyadussaliheen, adab, shamail, bulugh`;
 
   if (checkvalidhadith.check(message, args) == "false") { 
-    
   return message.channel.send(errmsg)
-    
   } else {
-    
   var [chapter, book] = checkvalidhadith.check(message, args) 
   }
 
@@ -30,7 +25,7 @@ exports.run = async (Client, message, args) => {
     
     var $ = cheerio.load(res.body)
     
-    var hadith = $('div[class=english_hadith_full]').text()
+    var hadith = $(`div[class="arabic_hadith_full arabic"]`).text()
     
     if (hadith == null || hadith == "") {
         var embed = new Discord.RichEmbed().setColor("RED")
