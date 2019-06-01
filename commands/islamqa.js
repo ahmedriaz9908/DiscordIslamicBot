@@ -18,7 +18,7 @@ var cheerio = require('cheerio');
     
     var $  = cheerio.load(res.body);
     
-    var links = $(`#res a`);
+    var links = $(`a`);
     
     for (let i = 0; i < links.length; i++) {   
       
