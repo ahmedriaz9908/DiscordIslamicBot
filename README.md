@@ -9,7 +9,7 @@ __Commands__
 5. Islamqa
 6. Islamic date
 7. Prayer timings
-8. tafsir(coming soon)
+8. tafsir
 
 - type .help for a list of commands and usage
 
